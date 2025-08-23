@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sudo6t6 - Who are we?</title>
+<style>
+:root {
+  --primary: #16181d;
+  --secondary: #212235;
+  --accent: #ff69b4;
+  --highlight: #3a86ff;
+  --text-main: #e2e2e2;
+  --card-bg: rgba(35,36,58,0.85);
+}
+
+/* Global */
+* { box-sizing: border-box; margin:0; padding:0; font-family: 'Inter', sans-serif; }
+body { background: var(--primary); color: var(--text-main); overflow-x:hidden; position:relative; text-align:center; }
+a { color: var(--highlight); text-decoration: none; }
+h1,h2,h3 { color:#fff; }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Cosmic canvas */
+#cosmos { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-2; background: var(--primary); }
+
+/* Sections */
+section { max-width:900px; margin:4rem auto; padding:2rem; background: var(--card-bg); border-radius:28px; box-shadow:0 12px 30px #000a; opacity:0; transform:translateY(50px) scale(0.95); transition: all 0.8s ease-out; }
+section.visible { opacity:1; transform:translateY(0) scale(1); }
+
+/* Hero */
+.hero h1 { font-size:3rem; background: linear-gradient(90deg,var(--accent),var(--highlight)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:0.5rem; }
+.hero p { font-size:1.25rem; line-height:1.6; margin-top:0.5rem; }
+.hero .mission { margin-top:1rem; font-style:italic; color:#f7acff; font-weight:600; }
+
+/* Project Cards */
+.project-card { position:relative; background: rgba(50,52,80,0.85); border-radius:24px; margin:2rem auto; padding:2rem; box-shadow:0 6px 25px #1da9ff33; transition:0.3s; cursor:pointer; overflow:hidden; }
+.project-card:hover { transform: scale(1.05); box-shadow:0 12px 35px var(--highlight)55; }
+.project-card::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; background: radial-gradient(circle, rgba(58,134,255,0.25) 0%, transparent 40%); transform:translate(-50%, -50%); transition: all 0.15s ease-out; }
+
+/* Lists */
+ul { list-style:none; padding:0; text-align:left; margin-left:2rem; }
+li { margin:0.6rem 0; font-weight:500; }
+li:before { content:"•"; margin-right:0.5rem; color: var(--accent); }
+
+/* Tech Bars */
+.tech-bar { background:#23244a; border-radius:12px; overflow:hidden; margin:1rem auto; height:22px; width:80%; box-shadow:0 2px 6px #0006; }
+.tech-fill { height:100%; width:0%; background: linear-gradient(90deg,var(--accent),var(--highlight)); border-radius:12px; text-align:right; padding-right:8px; color:#fff; font-weight:600; line-height:22px; transition: width 1.5s ease-out; }
+
+/* CTA Button */
+.cta-btn { padding:1.1em 3em; background: linear-gradient(90deg,var(--accent),var(--highlight)); color:#fff; font-size:1.3em; border:none; border-radius:40px; cursor:pointer; font-weight:700; box-shadow:0 6px 22px var(--highlight)44; display:inline-block; margin-top:1rem; transition: all 0.3s; }
+.cta-btn:hover { transform: scale(1.12); box-shadow:0 10px 30px var(--highlight)77; background: linear-gradient(90deg,var(--highlight), var(--accent)); color:#23243a; }
+
+
+footer { background: linear-gradient(120deg,#12122d,#111019); padding:3rem 1.5rem 2rem 1.5rem; margin-top:4rem; border-top:2px solid #22254a; }
+.footer-main { max-width:900px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; text-align:left; }
+.footer-brand { flex:1 1 220px; }
+.footer-brand h2 { color:var(--accent); margin-bottom:0.5rem; }
+.footer-desc { color:#a0b2d3; font-size:.95rem; line-height:1.5; }
+.footer-links { flex:1 1 150px; }
+.footer-links h3 { color: var(--highlight); font-size:1rem; margin-bottom:0.4rem; }
+.footer-links ul { list-style:none; padding:0; }
+.footer-links a { color:#f2e2ff; text-decoration:none; font-size:.95rem; display:block; margin-bottom:.4rem; border-bottom:1px dashed #ff69b466; transition:0.2s; }
+.footer-links a:hover { color: var(--accent); border-bottom:2px solid var(--accent); }
+
+@media(max-width:700px){ section{margin:2rem 1rem; padding:1.5rem;} .tech-bar{width:90%;} .hero h1{font-size:2.2rem;} .footer-main{flex-direction:column;} }
+</style>
+</head>
+<body>
+
+<canvas id="cosmos"></canvas>
+
+<section id="hero" class="hero scroll-section">
+  <h1>🌀 sudo6t6</h1>
+  <p>⚡ Creating high-performance, elegant, and reliable tools for modern web users 🚀<br>🌍 Open-source, privacy-focused, and thoughtfully designed ✨</p>
+  <p class="mission">Our mission: <b>Craft the tools we always wished existed.</b></p>
+</section>
+
+<section id="about" class="scroll-section">
+  <h2>🔥 About Us</h2>
+  <ul>
+    <li>⚡ Efficient → Optimized, minimal, and fast-loading</li>
+    <li>🎨 Refined Design → Modern, clean, and visually coherent</li>
+    <li>🔍 Transparent → Open-source and auditable</li>
+    <li>🛠️ Practical → Tools that enhance productivity and workflow</li>
+  </ul>
+</section>
+
+<section id="projects" class="project-card scroll-section">
+  <h2>📂 Projects</h2>
+  <p>🚀 <a href="https://telloverseurl" target="_blank">Telloverse</a> → Retrieve and download Tellonym Q&As efficiently 🌟</p>
+  <p>💡 Upcoming: Utility-focused tools, privacy-conscious apps, and productivity enhancers 🧩</p>
+</section>
+
+<section id="techstack" class="scroll-section">
+  <h2>💻 Technology Stack</h2>
+  <ul>
+    <li>🌐 HTML, CSS, JavaScript</li>
+    <li>⚛️ React, Next.js</li>
+    <li>🖤 TailwindCSS & Custom CSS</li>
+    <li>🐍 Python & Flask</li>
+    <li>💾 Git & CI/CD pipelines</li>
+  </ul>
+  <div class="tech-bar"><div class="tech-fill" data-width="90%">90%</div></div>
+  <div class="tech-bar"><div class="tech-fill" data-width="80%">80%</div></div>
+  <div class="tech-bar"><div class="tech-fill" data-width="70%">70%</div></div>
+</section>
+
+<section id="contribute" class="scroll-section">
+  <h2>🧑‍💻 Contributing</h2>
+  <ul>
+    <li>1️⃣ Fork the repository</li>
+    <li>2️⃣ Explore and enhance features</li>
+    <li>3️⃣ Submit a pull request</li>
+    <li>4️⃣ Get featured in our organization 🚀</li>
+  </ul>
+  <button class="cta-btn" onclick="window.open('https://github.com/sudo6t6','_blank')">✨ Join the Initiative ✨</button>
+</section>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <h2>🌀 sudo6t6</h2>
+      <p class="footer-desc">Open-source collective creating high-performance, elegant, and practical tools.<br><span style="color:var(--accent);">Build. Share. Advance.</span></p>
+    </div>
+    <div class="footer-links">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#techstack">Technology Stack</a></li>
+        <li><a href="#contribute">Contribute</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h3>Contact</h3>
+      <ul>
+        
+        <li><a href="https://instagram.com/sudo6t6" target="_blank">Instagram</a></li>
+        <li><a href="https://github.com/sudo6t6" target="_blank">GitHub</a></li>
+        <li><a href="https://tellonym.me/sudo6t6" target="_blank">Tellonym</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+const canvas = document.getElementById('cosmos');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+function random(min,max){ return Math.random()*(max-min)+min; }
+
+class Particle{
+  constructor(){ this.x=random(0,canvas.width); this.y=random(0,canvas.height); this.radius=random(0.5,1.5); this.vx=random(-0.2,0.2); this.vy=random(-0.2,0.2); }
+  update(){ this.x+=this.vx; this.y+=this.vy; if(this.x>canvas.width)this.x=0; if(this.x<0)this.x=canvas.width; if(this.y>canvas.height)this.y=0; if(this.y<0)this.y=canvas.height;}
+  draw(){ ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle="white"; ctx.globalAlpha=0.8; ctx.fill(); }
+}
+
+class ShootingStar{
+  constructor(){ this.reset(); }
+  reset(){ this.x=random(0,canvas.width); this.y=random(0,canvas.height/2); this.len=random(80,150); this.speed=random(8,15); this.angle=Math.PI/4; this.opacity=0; this.traveled=0; }
+  update(){ this.x+=this.speed*Math.cos(this.angle); this.y+=this.speed*Math.sin(this.angle); this.traveled+=this.speed; this.opacity+=0.02; if(this.traveled>this.len) this.reset(); }
+  draw(){ ctx.beginPath(); ctx.moveTo(this.x,this.y); ctx.lineTo(this.x - this.len*Math.cos(this.angle), this.y - this.len*Math.sin(this.angle)); ctx.strokeStyle=`rgba(255,255,255,${this.opacity})`; ctx.lineWidth=2; ctx.stroke(); }
+}
+
+let particles = [];
+for(let i=0;i<120;i++) particles.push(new Particle());
+let shootingStars=[];
+for(let i=0;i<2;i++) shootingStars.push(new ShootingStar());
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{p.update();p.draw();});
+  shootingStars.forEach(s=>{s.update();s.draw();});
+  requestAnimationFrame(animate);
+}
+animate();
+window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
+
+const sections = document.querySelectorAll('.scroll-section');
+function revealOnScroll(){
+  const triggerBottom = window.innerHeight * 0.85;
+  sections.forEach(section=>{
+    const top = section.getBoundingClientRect().top;
+    if(top < triggerBottom){ section.classList.add('visible'); 
+      const bars = section.querySelectorAll('.tech-fill'); 
+      bars.forEach(bar=>{ bar.style.width = bar.getAttribute('data-width'); });
+    }
+  });
+}
+window.addEventListener('scroll',revealOnScroll);
+window.addEventListener('load',revealOnScroll);
+
+
+const cards = document.querySelectorAll('.project-card');
+cards.forEach(card=>{
+  card.addEventListener('mousemove', e=>{
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', x+'px');
+    card.style.setProperty('--mouse-y', y+'px');
+    card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(58,134,255,0.25), rgba(50,52,80,0.85) 70%)`;
+  });
+  card.addEventListener('mouseleave', ()=>{ card.style.background = 'rgba(50,52,80,0.85)'; });
+});
+</script>
+</body>
+</html>
