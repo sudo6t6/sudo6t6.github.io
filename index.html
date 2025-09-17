@@ -1,3 +1,4 @@
+<!---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -211,5 +212,57 @@ cards.forEach(card=>{
   card.addEventListener('mouseleave', ()=>{ card.style.background = 'rgba(50,52,80,0.85)'; });
 });
 </script>
+</body>
+</html>
+--->
+<!---MAINTENANCE---->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maintenance</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #e63946;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+    .spinner {
+      border: 6px solid #ddd;
+      border-top: 6px solid #e63946;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin-top: 20px;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg);}
+      to { transform: rotate(360deg);}
+    }
+  </style>
+</head>
+<body>
+  <h1>Will Be Back Soon!</h1>
+  <p>Website is currently undergoing scheduled maintenance.<br>
+     Thank you for your patience and understanding.</p>
+  <div class="spinner"></div>
 </body>
 </html>
